@@ -61,12 +61,12 @@ function read_input () {
       * ) echo 'Введите верную команду'
 	  read_input;;
    esac 
-   if [[ "$command" = "fl" ]] 
+   if [[ "$command" = "FL" ]] 
    then
 	   let "inp_ind=$input_row*8+$input_col"
            closed_field[$inp_ind]="F"
    fi
-   if [[ "$command" = "unfl" ]] 
+   if [[ "$command" = "UNFL" ]] 
    then
 	   let "inp_ind=$input_row*8+$input_col"
 	   if [[ ${closed_field[$inp_ind]} = "F" ]]
@@ -170,16 +170,16 @@ for mine_num in {1..8} #Заполняем поле минами и числам
 echo "!!!Инструкция!!!"
 echo "Способ ввода команды: [команда] [ячейка]"
 echo "Виды команд:"
-echo "op - открыть ячейку"
-echo "fl - поставить флажок"
-echo "unfl - убрать флажок"
+echo "OP - открыть ячейку"
+echo "FL - поставить флажок"
+echo "UNFL - убрать флажок"
 echo "exit - выйти из игры"
-echo "Пример команды: op B7"
+echo "Пример команды: OP B7"
 draw_field
 while [[ 1 ]] 
    do
       read_input
-      if [[ $command = "op" ]] 
+      if [[ $command = "OP" ]] 
       then
       	open_cell "$input_col" "$input_row"
 	opened=0
